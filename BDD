@@ -1,0 +1,102 @@
+"Scenario: Verify New Message window appears with different options available on it when clicked on Compose email
+Given  : User is logged in using valid Gmail account
+When : User Navigate to Left pane
+AND : User clicks Compose button
+Then : A new popup window should open with heading ""New Message"" having options Recipients, Subject, body  to enter text, Formatting toolbar, Send button, Discard draft, Minimize window etc.
+"
+"Scenario: Verify options available on New Message Window for Recepients 
+Given  : User is logged in using valid Gmail account
+When : User Navigate to Left pane
+AND : User clicks Compose button
+Then : On New Message window To, Cc, Bcc options should be available for user to enter email address of recepients
+"
+"Scenario: Verify on Clicking Cc and Bcc options, a new line with space to enter additional email id appears
+Given  : User is logged in using valid Gmail account
+When : User clicks on Compose button
+AND :  User Click on Cc, Bcc options
+Then : On New Message window, system should provide space on new line to enter Cc, Bcc email ids respectively
+"
+"Scenario: Verify if To, Cc, Bcc field accepts valid text
+Given  :  User is logged in using valid Gmail account
+When :  User clicks on Compose button
+And : User enters different type of text in To, CC, Bcc fields
+Then : To, Cc, Bcc fields should accept alphanumerics, periods, the @ symbol,  underscore, and the hyphen
+"
+"Scenario: Verify error is thrown if text entered in To, Cc, Bcc fields is not in correct format
+Given  :  User is logged in using valid Gmail account
+When : User clicks on Compose button
+And : User enters text for To, CC or Bcc that is not allowed (invalid email ids)
+And :  user enters email body and send email
+Then : An email should not be sent and error should appear asking user to enter correct details for To, Cc, Bcc
+"
+"Scenario: Verify if user contact information shows when hover over email id entered in To field
+Given  :  User is logged in using valid Gmail account
+When : User clicks on Compose button 
+And :  User enters valid email id/s in To field
+And :  Hover over the entered email ids 
+Then : User's contact information should appear as a small window when user hover over the email ids
+"
+"Scenario: Verify if error appears when user try to send email with recepient's email id set as blank
+Given  :   User is logged in using valid Gmail account
+When  : User clicks on Compose button 
+And :  Keep recepients email id as blank 
+And : Send email
+Then : Error should appear asking user to mention at least one recepient
+"
+"Scenario: Verify Subject line can be entered in Subject field on New Message window
+Given  : User is logged in using valid Gmail account
+When : User clicks on Compose button 
+And : Navigate to Subject field and enter valid subject line e.g. ""Incubyte""
+Then : User should able to enter valid subject line in subject line field
+"
+"Scenario: Verify subject line accepts only valid text
+Given  : User is logged in using valid Gmail account
+When : User clicks on Compose button 
+And :  user try to enter text that is not allowed for subject field
+Then : User should not able to enter the text which is not allowed 
+"
+"Scenario: Verify if user is able to type the email contents in body section
+Given  :  User is logged in using valid Gmail account
+When : User clicks on Compose button 
+And : user enters some valid data e.g. ""QA test for Incubyte"" in email body
+Then : User should be able to enter valid details in email body field
+"
+"Scenario: Verify maximum number of characters in email body
+Given  : User is logged in using valid Gmail account
+When : User clicks on Compose button 
+And : User enters maximum number of characters in email body
+Then : Use is able to enter the maximum number of characters in email body
+"
+"Scenario: Verify if error is thrown when email body exceeds maximum character limit
+Given  : User is logged in using valid Gmail account
+When : User clicks on Compose button 
+And : User try to enter more than maximum number of characters in email body
+Then : Error should appear asking user to enter characters within the maximum limit
+"
+"Scenario: Verify Compose email window functionality
+Given  :  User is logged in using valid Gmail account
+When : User clicks on Compose button 
+And : On the New Message window, user enters Recepients details in To, CC and/or Bcc e.g. atulvilaskar@gmail.com
+And : user enters valid Subject line e.g.  ""Incubyte""
+And :  user enters details in the body of the email e.g. ""QA test for Incubyte""
+And : user clicks on Send button
+Then :  An email should be sent to all recepients entered under To, cc, bcc fields And:  a small pop up window showing text as ""Message Sent"" should appear at the left hand bottom of the screen
+"
+"Scenario: Verify if the sent email is received to every recepient
+Given  :  User is logged in using valid Gmail account
+When : User clicks on Compose button 
+And : On the New Message window, user enters Recepients details in To, CC and/or Bcc e.g. atulvilaskar@gmail.com
+And : user enters valid Subject line e.g.  ""Incubyte""
+And :  user enters details in the body of the email e.g. ""QA test for Incubyte""
+And : user clicks on Send button
+And:  Login as recepient 
+Then :  All the recepients should receive the email in their inbox"
+"Scenario: Verify if the email sent is stored in Sent email folder 
+Given  :  User is logged in using valid Gmail account
+When : User clicks on Compose button 
+And : On the New Message window, user enters Recepients details in To, CC and/or Bcc e.g. atulvilaskar@gmail.com
+And : user enters valid Subject line e.g.  ""Incubyte""
+And :  user enters details in the body of the email e.g. ""QA test for Incubyte""
+And : user clicks on Send button
+And: User checks Sent email Folder
+Then : In Sent email folder,sent emails are stored "
